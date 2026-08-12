@@ -15,8 +15,7 @@ cfg = load_config()
 now = now_tz(cfg["timezone"])
 
 st.title("A股自选股资讯雷达")
-st.caption("资讯 / 公告 / 大单成交 / 东方财富资金流 / 问董秘，默认查看最近 24 小时")
-
+st.caption("资讯 / 公告 / 大宗交易 / 问董秘，默认查看最近 24 小时")
 with st.sidebar:
     hours = st.selectbox("时间窗口", [6, 12, 24, 48, 72], index=2)
     stock_options = {f"{s.name} ({s.code})": s.code for s in WATCHLIST}
@@ -43,20 +42,40 @@ for col in ["event_time", "category", "source", "code", "name", "title", "summar
         df[col] = ""
 
 counts = df.groupby("category").size().to_dict()
-c1, c2, c3, c4, c5 = st.columns(5)
-c1.metric("资讯", counts.get("news", 0))
-c2.metric("公告", counts.get("announcement", 0))
-c3.metric("大单成交", counts.get("big_trade", 0))
-c4.metric("资金流", counts.get("fund_flow", 0))
-c5.metric("问董秘", counts.get("ir", 0))
+c1, c2, c3, c4 = st.columns(4)
 
+c1.metric(
+    "资讯",
+    counts.get("news", 0),
+)
+
+c2.metric(
+    "公告",
+    counts.get("announcement", 0),
+)
+
+c3.metric(
+    "大宗交易",
+    counts.get("block_trade", 0),
+)
+
+c4.metric(
+    "问董秘",
+    counts.get("ir", 0),
+)
 summary = (
     df.groupby(["code", "name", "category"]).size().unstack(fill_value=0).reset_index()
 )
 st.subheader("自选股概览")
 st.dataframe(summary, use_container_width=True, hide_index=True)
 
-tab1, tab2, tab3 = st.tabs(["资讯 & 公告", "大单 & 资金流", "问董秘"])
+tab1, tab2, tab3 = st.tabs(
+    [
+        "资讯 & 公告",
+        "大宗交易",
+        "问董秘",
+    ]
+)
 
 with tab1:
     x = df[df["category"].isin(["news", "announcement"])].copy()
@@ -68,13 +87,9 @@ with tab1:
     )
 
 with tab2:
-    x = df[df["category"].isin(["big_trade", "fund_flow"])].copy()
-    st.dataframe(
-        x[["event_time", "name", "code", "category", "title", "summary", "source", "url"]],
-        use_container_width=True,
-        hide_index=True,
-        column_config={"url": st.column_config.LinkColumn("来源")},
-    )
+    x = df[
+        df["category"] == "block_trade"
+    ].copy()
 
 with tab3:
     x = df[df["category"] == "ir"].copy()
