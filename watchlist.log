@@ -4439,3 +4439,335 @@ Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/adapters.py", line 711, in send
     raise ConnectionError(err, request=request)
 requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2026-08-14 15:01:43,802 | INFO | pipeline | 002371 news: 1 items
+2026-08-14 15:02:27,240 | INFO | pipeline | 002371 announcement: 0 items
+2026-08-14 15:02:29,857 | INFO | pipeline | 002371 block_trade: 0 items
+2026-08-14 15:02:43,804 | INFO | pipeline | 002371 ir: 1 items
+2026-08-14 15:02:46,248 | INFO | pipeline | 603268 news: 1 items
+2026-08-14 15:02:47,051 | INFO | pipeline | 603268 announcement: 0 items
+2026-08-14 15:02:47,853 | INFO | pipeline | 603268 block_trade: 0 items
+2026-08-14 15:02:50,941 | WARNING | utils | einteraction:603268 failed (1/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:02:54,061 | WARNING | utils | einteraction:603268 failed (2/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:02:58,172 | WARNING | utils | einteraction:603268 failed (3/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:02:58,172 | ERROR | pipeline | collector failed: 603268 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 65, in stock_sns_sseinfo
+    code_uid_map = _fetch_stock_uid()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 40, in _fetch_stock_uid
+    data_json = r.json()
+                ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:00,663 | INFO | pipeline | 688188 news: 1 items
+2026-08-14 15:03:01,466 | INFO | pipeline | 688188 announcement: 0 items
+2026-08-14 15:03:02,267 | INFO | pipeline | 688188 block_trade: 0 items
+2026-08-14 15:03:03,894 | WARNING | utils | einteraction:688188 failed (1/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:06,887 | WARNING | utils | einteraction:688188 failed (2/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:10,168 | WARNING | utils | einteraction:688188 failed (3/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:10,168 | ERROR | pipeline | collector failed: 688188 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 65, in stock_sns_sseinfo
+    code_uid_map = _fetch_stock_uid()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 40, in _fetch_stock_uid
+    data_json = r.json()
+                ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:11,643 | INFO | pipeline | 002156 news: 1 items
+2026-08-14 15:03:12,446 | INFO | pipeline | 002156 announcement: 0 items
+2026-08-14 15:03:13,247 | INFO | pipeline | 002156 block_trade: 0 items
+2026-08-14 15:03:29,607 | INFO | pipeline | 002156 ir: 0 items
+2026-08-14 15:03:31,073 | INFO | pipeline | 688017 news: 1 items
+2026-08-14 15:03:31,877 | INFO | pipeline | 688017 announcement: 0 items
+2026-08-14 15:03:32,678 | INFO | pipeline | 688017 block_trade: 0 items
+2026-08-14 15:03:34,922 | WARNING | utils | einteraction:688017 failed (1/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:38,439 | WARNING | utils | einteraction:688017 failed (2/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:42,523 | WARNING | utils | einteraction:688017 failed (3/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:42,523 | ERROR | pipeline | collector failed: 688017 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 65, in stock_sns_sseinfo
+    code_uid_map = _fetch_stock_uid()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 40, in _fetch_stock_uid
+    data_json = r.json()
+                ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:03:45,817 | INFO | pipeline | 300620 news: 0 items
+2026-08-14 15:03:46,621 | INFO | pipeline | 300620 announcement: 0 items
+2026-08-14 15:03:47,422 | INFO | pipeline | 300620 block_trade: 0 items
+2026-08-14 15:04:07,628 | INFO | pipeline | 300620 ir: 0 items
+2026-08-14 15:04:11,973 | INFO | pipeline | 688825 news: 2 items
+2026-08-14 15:04:12,777 | INFO | pipeline | 688825 announcement: 0 items
+2026-08-14 15:04:13,578 | INFO | pipeline | 688825 block_trade: 0 items
+2026-08-14 15:04:18,228 | WARNING | utils | einteraction:688825 failed (1/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:21,357 | WARNING | utils | einteraction:688825 failed (2/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:24,854 | WARNING | utils | einteraction:688825 failed (3/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:24,854 | ERROR | pipeline | collector failed: 688825 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 65, in stock_sns_sseinfo
+    code_uid_map = _fetch_stock_uid()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 40, in _fetch_stock_uid
+    data_json = r.json()
+                ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:26,532 | INFO | pipeline | 300373 news: 2 items
+2026-08-14 15:04:27,335 | INFO | pipeline | 300373 announcement: 0 items
+2026-08-14 15:04:28,136 | INFO | pipeline | 300373 block_trade: 0 items
+2026-08-14 15:04:40,046 | INFO | pipeline | 300373 ir: 1 items
+2026-08-14 15:04:41,522 | INFO | pipeline | 688020 news: 2 items
+2026-08-14 15:04:42,326 | INFO | pipeline | 688020 announcement: 0 items
+2026-08-14 15:04:43,127 | INFO | pipeline | 688020 block_trade: 0 items
+2026-08-14 15:04:44,756 | WARNING | utils | einteraction:688020 failed (1/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:47,751 | WARNING | utils | einteraction:688020 failed (2/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:50,989 | WARNING | utils | einteraction:688020 failed (3/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:50,989 | ERROR | pipeline | collector failed: 688020 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 65, in stock_sns_sseinfo
+    code_uid_map = _fetch_stock_uid()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 40, in _fetch_stock_uid
+    data_json = r.json()
+                ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:04:52,413 | INFO | pipeline | 002463 news: 1 items
+2026-08-14 15:04:53,216 | INFO | pipeline | 002463 announcement: 0 items
+2026-08-14 15:04:54,017 | INFO | pipeline | 002463 block_trade: 0 items
+2026-08-14 15:05:09,183 | INFO | pipeline | 002463 ir: 0 items
+2026-08-14 15:05:10,940 | INFO | pipeline | 002851 news: 4 items
+2026-08-14 15:05:11,744 | INFO | pipeline | 002851 announcement: 1 items
+2026-08-14 15:05:12,545 | INFO | pipeline | 002851 block_trade: 0 items
+2026-08-14 15:05:37,337 | INFO | pipeline | 002851 ir: 0 items
+2026-08-14 15:05:38,740 | INFO | pipeline | 920045 news: 2 items
+2026-08-14 15:05:39,543 | INFO | pipeline | 920045 announcement: 0 items
+2026-08-14 15:05:40,344 | INFO | pipeline | 920045 block_trade: 0 items
+2026-08-14 15:05:41,144 | INFO | pipeline | 920045 ir: 0 items
+2026-08-14 15:05:44,734 | INFO | collectors.bse_ir | No server-rendered BSE Q&A rows for 920045; leaving source empty
+2026-08-14 15:05:44,735 | INFO | pipeline | 920045 bse_ir_fallback: 0 items
+2026-08-14 15:05:47,190 | INFO | pipeline | 300394 news: 0 items
+2026-08-14 15:05:47,994 | INFO | pipeline | 300394 announcement: 10 items
+2026-08-14 15:05:48,795 | INFO | pipeline | 300394 block_trade: 0 items
+2026-08-14 15:06:05,800 | INFO | pipeline | 300394 ir: 0 items
+2026-08-14 15:06:07,254 | INFO | pipeline | 002384 news: 0 items
+2026-08-14 15:06:08,058 | INFO | pipeline | 002384 announcement: 0 items
+2026-08-14 15:06:08,859 | INFO | pipeline | 002384 block_trade: 0 items
+2026-08-14 15:06:27,935 | INFO | pipeline | 002384 ir: 0 items
+2026-08-14 15:06:30,563 | INFO | pipeline | 300502 news: 2 items
+2026-08-14 15:06:31,367 | INFO | pipeline | 300502 announcement: 0 items
+2026-08-14 15:06:32,168 | INFO | pipeline | 300502 block_trade: 0 items
+2026-08-14 15:06:55,882 | INFO | pipeline | 300502 ir: 1 items
+2026-08-14 15:06:58,949 | INFO | pipeline | 300750 news: 2 items
+2026-08-14 15:06:59,753 | INFO | pipeline | 300750 announcement: 0 items
+2026-08-14 15:07:00,555 | INFO | pipeline | 300750 block_trade: 2 items
+2026-08-14 15:07:21,358 | INFO | pipeline | 300750 ir: 0 items
+2026-08-14 15:07:23,744 | INFO | pipeline | 301488 news: 0 items
+2026-08-14 15:07:24,547 | INFO | pipeline | 301488 announcement: 1 items
+2026-08-14 15:07:25,348 | INFO | pipeline | 301488 block_trade: 0 items
+2026-08-14 15:07:34,885 | INFO | pipeline | 301488 ir: 0 items
+2026-08-14 15:07:36,317 | INFO | pipeline | 603986 news: 0 items
+2026-08-14 15:07:37,120 | INFO | pipeline | 603986 announcement: 0 items
+2026-08-14 15:07:37,921 | INFO | pipeline | 603986 block_trade: 0 items
+2026-08-14 15:07:39,551 | WARNING | utils | einteraction:603986 failed (1/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:07:42,706 | WARNING | utils | einteraction:603986 failed (2/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:07:47,203 | WARNING | utils | einteraction:603986 failed (3/3): Expecting value: line 1 column 1 (char 0)
+2026-08-14 15:07:47,203 | ERROR | pipeline | collector failed: 603986 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 65, in stock_sns_sseinfo
+    code_uid_map = _fetch_stock_uid()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 40, in _fetch_stock_uid
+    data_json = r.json()
+                ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/requests/models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
