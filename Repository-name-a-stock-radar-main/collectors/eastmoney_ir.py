@@ -125,12 +125,13 @@ def _to_item(stock, row: dict, qatype: int, tz_name: str) -> Item | None:
     payload = dict(row)
     payload["eastmoney_qatype"] = qatype
     payload["eastmoney_section"] = IR_SECTION_LABELS[subcategory]
+    payload["fetch_channel"] = "东方财富网-问董秘"
     return Item(
         code=stock.code,
         name=_clean(row.get("stockbar_name")) or stock.name,
         category="ir",
         subcategory=subcategory,
-        source=f"东方财富-问董秘-{IR_SECTION_LABELS[subcategory]}",
+        source=f"东方财富网-问董秘-{IR_SECTION_LABELS[subcategory]}",
         event_time=event_time,
         title=title[:500],
         summary=summary[:3000],

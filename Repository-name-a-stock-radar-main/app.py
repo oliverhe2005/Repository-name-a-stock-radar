@@ -21,6 +21,8 @@ from stocks import (
 )
 from utils import now_tz
 
+APP_VERSION = "V4 · 东方财富直连版"
+
 
 @st.cache_data(ttl=300, show_spinner=False)
 def load_eastmoney_ir_live(code: str, timezone: str):
@@ -67,7 +69,10 @@ cfg = load_config()
 now = now_tz(cfg["timezone"])
 
 st.title("A股自选股资讯雷达")
-st.caption("资讯 / 公告 / 大宗交易默认按时间窗口；问董秘直接实时查询东方财富")
+st.caption(
+    f"{APP_VERSION}｜资讯 / 公告 / 大宗交易默认按时间窗口；"
+    "问董秘直接实时查询东方财富"
+)
 
 session_watchlist = st.session_state.setdefault("session_watchlist", {})
 session_removed = set(st.session_state.setdefault("session_removed", []))
@@ -79,6 +84,7 @@ for code in session_removed:
 watchlist = list(watchlist_by_code.values())
 
 with st.sidebar:
+    st.caption(APP_VERSION)
     hours = st.selectbox("时间窗口", [6, 12, 24, 48, 72], index=2)
     stock_options = {f"{s.name} ({s.code})": s.code for s in watchlist}
     if st.session_state.pop("reset_stock_selection", False):
@@ -264,8 +270,12 @@ with tab2:
         )
 
 with tab3:
+    st.success(
+        "抓取渠道：东方财富网－问董秘。这里不调用深交所互动易或上证 e 互动接口。"
+    )
     st.caption(
-        "这里直接读取东方财富问董秘公开页面，不读取旧互动易记录，也不受侧栏时间窗口限制。"
+        "部分深圳公司内容在东方财富原页会注明“来自深交所互动易”；"
+        "这是东方财富标出的原始发布平台，不是本 App 的抓取渠道。"
     )
     query_col, button_col = st.columns([4, 1])
     with query_col:
@@ -330,5 +340,13 @@ with tab3:
                     ],
                     width="stretch",
                     hide_index=True,
-                    column_config={"url": st.column_config.LinkColumn("东方财富")},
+                    column_config={
+                        "event_time": "时间",
+                        "name": "股票",
+                        "code": "代码",
+                        "title": "问题 / 标题",
+                        "summary": "公司答复 / 摘要",
+                        "source": st.column_config.TextColumn("抓取渠道"),
+                        "url": st.column_config.LinkColumn("东方财富原文"),
+                    },
                 )
