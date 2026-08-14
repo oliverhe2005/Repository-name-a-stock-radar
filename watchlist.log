@@ -3583,3 +3583,99 @@ KeyError: '688825'
 2026-08-13 19:31:21,763 | INFO | pipeline | 603986 announcement: 0 items
 2026-08-13 19:31:22,564 | INFO | pipeline | 603986 block_trade: 0 items
 2026-08-13 19:31:42,059 | INFO | pipeline | 603986 ir: 0 items
+2026-08-14 13:07:08,920 | INFO | pipeline | 002371 news: 1 items
+2026-08-14 13:07:55,454 | INFO | pipeline | 002371 announcement: 0 items
+2026-08-14 13:07:57,262 | INFO | pipeline | 002371 block_trade: 0 items
+2026-08-14 13:08:13,133 | INFO | pipeline | 002371 ir: 1 items
+2026-08-14 13:08:14,680 | INFO | pipeline | 603268 news: 1 items
+2026-08-14 13:08:15,483 | INFO | pipeline | 603268 announcement: 0 items
+2026-08-14 13:08:16,285 | INFO | pipeline | 603268 block_trade: 0 items
+2026-08-14 13:10:07,736 | INFO | pipeline | 603268 ir: 0 items
+2026-08-14 13:10:10,310 | INFO | pipeline | 688188 news: 1 items
+2026-08-14 13:10:11,114 | INFO | pipeline | 688188 announcement: 0 items
+2026-08-14 13:10:11,915 | INFO | pipeline | 688188 block_trade: 0 items
+2026-08-14 13:10:13,835 | INFO | pipeline | 688188 ir: 0 items
+2026-08-14 13:10:15,377 | INFO | pipeline | 002156 news: 1 items
+2026-08-14 13:10:16,181 | INFO | pipeline | 002156 announcement: 0 items
+2026-08-14 13:10:16,982 | INFO | pipeline | 002156 block_trade: 0 items
+2026-08-14 13:10:23,706 | INFO | pipeline | 002156 ir: 0 items
+2026-08-14 13:10:26,401 | INFO | pipeline | 688017 news: 1 items
+2026-08-14 13:10:27,204 | INFO | pipeline | 688017 announcement: 0 items
+2026-08-14 13:10:28,005 | INFO | pipeline | 688017 block_trade: 0 items
+2026-08-14 13:10:30,972 | INFO | pipeline | 688017 ir: 0 items
+2026-08-14 13:10:33,709 | INFO | pipeline | 300620 news: 0 items
+2026-08-14 13:10:34,512 | INFO | pipeline | 300620 announcement: 0 items
+2026-08-14 13:10:35,313 | INFO | pipeline | 300620 block_trade: 0 items
+2026-08-14 13:10:41,413 | INFO | pipeline | 300620 ir: 0 items
+2026-08-14 13:10:43,931 | INFO | pipeline | 688825 news: 2 items
+2026-08-14 13:10:44,735 | INFO | pipeline | 688825 announcement: 0 items
+2026-08-14 13:10:45,536 | INFO | pipeline | 688825 block_trade: 0 items
+2026-08-14 13:10:46,336 | WARNING | utils | einteraction:688825 failed (1/3): '688825'
+2026-08-14 13:10:47,536 | WARNING | utils | einteraction:688825 failed (2/3): '688825'
+2026-08-14 13:10:49,937 | WARNING | utils | einteraction:688825 failed (3/3): '688825'
+2026-08-14 13:10:49,937 | ERROR | pipeline | collector failed: 688825 ir
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 88, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 59, in <lambda>
+    lambda: collect_ir(
+            ^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 342, in collect_ir
+    df = safe_call(
+         ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 84, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 78, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/akshare/stock_feature/stock_sns_sseinfo.py", line 71, in stock_sns_sseinfo
+    "uid": code_uid_map[symbol],
+           ~~~~~~~~~~~~^^^^^^^^
+KeyError: '688825'
+2026-08-14 13:10:52,038 | INFO | pipeline | 300373 news: 2 items
+2026-08-14 13:10:52,841 | INFO | pipeline | 300373 announcement: 0 items
+2026-08-14 13:10:53,643 | INFO | pipeline | 300373 block_trade: 0 items
+2026-08-14 13:10:58,354 | INFO | pipeline | 300373 ir: 0 items
+2026-08-14 13:11:01,600 | INFO | pipeline | 688020 news: 2 items
+2026-08-14 13:11:02,403 | INFO | pipeline | 688020 announcement: 0 items
+2026-08-14 13:11:03,204 | INFO | pipeline | 688020 block_trade: 0 items
+2026-08-14 13:11:05,129 | INFO | pipeline | 688020 ir: 0 items
+2026-08-14 13:11:06,708 | INFO | pipeline | 002463 news: 1 items
+2026-08-14 13:11:07,511 | INFO | pipeline | 002463 announcement: 0 items
+2026-08-14 13:11:08,312 | INFO | pipeline | 002463 block_trade: 0 items
+2026-08-14 13:11:13,866 | INFO | pipeline | 002463 ir: 0 items
+2026-08-14 13:11:16,439 | INFO | pipeline | 002851 news: 5 items
+2026-08-14 13:11:17,243 | INFO | pipeline | 002851 announcement: 1 items
+2026-08-14 13:11:18,044 | INFO | pipeline | 002851 block_trade: 0 items
+2026-08-14 13:11:23,419 | INFO | pipeline | 002851 ir: 0 items
+2026-08-14 13:11:25,056 | INFO | pipeline | 920045 news: 2 items
+2026-08-14 13:11:25,860 | INFO | pipeline | 920045 announcement: 0 items
+2026-08-14 13:11:26,661 | INFO | pipeline | 920045 block_trade: 0 items
+2026-08-14 13:11:27,461 | INFO | pipeline | 920045 ir: 0 items
+2026-08-14 13:11:29,933 | INFO | collectors.bse_ir | No server-rendered BSE Q&A rows for 920045; leaving source empty
+2026-08-14 13:11:29,934 | INFO | pipeline | 920045 bse_ir_fallback: 0 items
+2026-08-14 13:11:33,807 | INFO | pipeline | 300394 news: 0 items
+2026-08-14 13:11:34,611 | INFO | pipeline | 300394 announcement: 10 items
+2026-08-14 13:11:35,412 | INFO | pipeline | 300394 block_trade: 0 items
+2026-08-14 13:11:40,228 | INFO | pipeline | 300394 ir: 0 items
+2026-08-14 13:11:43,483 | INFO | pipeline | 002384 news: 0 items
+2026-08-14 13:11:44,286 | INFO | pipeline | 002384 announcement: 0 items
+2026-08-14 13:11:45,087 | INFO | pipeline | 002384 block_trade: 0 items
+2026-08-14 13:11:51,562 | INFO | pipeline | 002384 ir: 0 items
+2026-08-14 13:11:53,458 | INFO | pipeline | 300502 news: 2 items
+2026-08-14 13:11:54,261 | INFO | pipeline | 300502 announcement: 0 items
+2026-08-14 13:11:55,062 | INFO | pipeline | 300502 block_trade: 0 items
+2026-08-14 13:12:05,584 | INFO | pipeline | 300502 ir: 0 items
+2026-08-14 13:12:07,171 | INFO | pipeline | 300750 news: 2 items
+2026-08-14 13:12:07,975 | INFO | pipeline | 300750 announcement: 0 items
+2026-08-14 13:12:08,777 | INFO | pipeline | 300750 block_trade: 2 items
+2026-08-14 13:12:14,570 | INFO | pipeline | 300750 ir: 1 items
+2026-08-14 13:12:16,182 | INFO | pipeline | 301488 news: 0 items
+2026-08-14 13:12:16,986 | INFO | pipeline | 301488 announcement: 1 items
+2026-08-14 13:12:17,787 | INFO | pipeline | 301488 block_trade: 0 items
+2026-08-14 13:12:26,542 | INFO | pipeline | 301488 ir: 0 items
+2026-08-14 13:12:29,473 | INFO | pipeline | 603986 news: 0 items
+2026-08-14 13:12:30,277 | INFO | pipeline | 603986 announcement: 0 items
+2026-08-14 13:12:31,078 | INFO | pipeline | 603986 block_trade: 0 items
+2026-08-14 13:12:34,045 | INFO | pipeline | 603986 ir: 0 items
