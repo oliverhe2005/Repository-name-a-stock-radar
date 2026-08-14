@@ -3,7 +3,7 @@ from pathlib import Path
 
 from config import load_config
 from db import fetch_recent
-from stocks import WATCHLIST
+from stocks import get_watchlist
 from utils import cutoff_time, now_tz
 
 
@@ -13,7 +13,8 @@ def generate_report() -> Path:
     rows = fetch_recent(cfg["database_path"], cutoff.isoformat(timespec="seconds"))
     grouped = defaultdict(lambda: defaultdict(list))
     for r in rows:
-        grouped[r["code"]][r["category"]].append(r)
+        group_key = r.get("subcategory") or r["category"]
+        grouped[r["code"]][group_key].append(r)
 
     now = now_tz(cfg["timezone"])
     lines = [
@@ -25,16 +26,26 @@ def generate_report() -> Path:
     labels = {
         "announcement": "公告",
         "news": "资讯",
-        "big_trade": "大单成交",
-        "fund_flow": "东方财富资金流",
-        "ir": "问董秘 / 投资者互动",
+        "block_trade": "大宗交易",
+        "latest_reply": "问董秘 · 最新答复",
+        "rumor_verification": "问董秘 · 传闻求证",
+        "company_release": "问董秘 · 公司发布",
+        "ir": "历史问董秘数据",
     }
-    for stock in WATCHLIST:
+    for stock in get_watchlist():
         cats = grouped.get(stock.code, {})
         if not any(cats.values()):
             continue
         lines += [f"## {stock.name} ({stock.code})", ""]
-        for cat in ["announcement", "news", "big_trade", "fund_flow", "ir"]:
+        for cat in [
+            "announcement",
+            "news",
+            "block_trade",
+            "latest_reply",
+            "rumor_verification",
+            "company_release",
+            "ir",
+        ]:
             items = cats.get(cat, [])
             if not items:
                 continue

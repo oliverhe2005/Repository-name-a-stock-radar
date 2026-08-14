@@ -1,4 +1,12 @@
-from dataclasses import dataclass
+import json
+import logging
+import os
+import re
+from dataclasses import asdict, dataclass
+from pathlib import Path
+
+logger = logging.getLogger(__name__)
+ROOT = Path(__file__).resolve().parent
 
 
 @dataclass(frozen=True)
@@ -34,3 +42,181 @@ WATCHLIST = [
 ]
 
 WATCHLIST_BY_CODE = {s.code: s for s in WATCHLIST}
+
+
+def normalize_stock_code(value: str) -> str:
+    """Return a six-digit A-share code or raise a helpful error."""
+    match = re.search(r"(?<!\d)(\d{6})(?!\d)", str(value).strip())
+    if not match:
+        raise ValueError(f"无效股票代码：{value!r}（请输入 6 位 A 股代码）")
+    return match.group(1)
+
+
+def parse_stock_codes(value: str) -> list[str]:
+    """Parse comma/space/newline-separated six-digit stock codes."""
+    codes = re.findall(r"(?<!\d)\d{6}(?!\d)", value or "")
+    return list(dict.fromkeys(codes))
+
+
+def infer_market(code: str) -> str:
+    code = normalize_stock_code(code)
+    if code[0] in {"4", "8", "9"}:
+        return "bj"
+    if code[0] in {"5", "6"}:
+        return "sh"
+    return "sz"
+
+
+def _custom_watchlist_path(path=None) -> Path:
+    if path is not None:
+        return Path(path)
+    configured = os.environ.get("WATCHLIST_FILE")
+    return Path(configured) if configured else ROOT / "data" / "custom_watchlist.json"
+
+
+def _removed_watchlist_path(path=None) -> Path:
+    custom_path = _custom_watchlist_path(path)
+    return custom_path.with_name(f"{custom_path.stem}_removed.json")
+
+
+def _write_json_atomic(path: Path, value) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = path.with_suffix(path.suffix + ".tmp")
+    temp_path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    temp_path.replace(path)
+
+
+def load_custom_watchlist(path=None) -> list[Stock]:
+    watchlist_path = _custom_watchlist_path(path)
+    if not watchlist_path.exists():
+        return []
+    try:
+        rows = json.loads(watchlist_path.read_text(encoding="utf-8"))
+        return [
+            Stock(
+                normalize_stock_code(row["code"]),
+                str(row.get("name") or row["code"]).strip(),
+                row.get("market") or infer_market(row["code"]),
+            )
+            for row in rows
+        ]
+    except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        logger.warning("invalid custom watchlist %s: %s", watchlist_path, exc)
+        return []
+
+
+def load_removed_watchlist(path=None) -> set[str]:
+    removed_path = _removed_watchlist_path(path)
+    if not removed_path.exists():
+        return set()
+    try:
+        rows = json.loads(removed_path.read_text(encoding="utf-8"))
+        return {normalize_stock_code(code) for code in rows}
+    except (TypeError, ValueError, json.JSONDecodeError) as exc:
+        logger.warning("invalid removed watchlist %s: %s", removed_path, exc)
+        return set()
+
+
+def get_watchlist(path=None) -> list[Stock]:
+    """Load the built-in list plus stocks added from the dashboard."""
+    stocks = {stock.code: stock for stock in WATCHLIST}
+    for stock in load_custom_watchlist(path):
+        stocks[stock.code] = stock
+    for code in load_removed_watchlist(path):
+        stocks.pop(code, None)
+    return list(stocks.values())
+
+
+def resolve_stock_name(code: str) -> str:
+    """Best-effort name lookup; code is a safe fallback when the source is down."""
+    try:
+        import akshare as ak
+
+        df = ak.stock_individual_info_em(symbol=code)
+        if df is not None and not df.empty:
+            item_col = "item" if "item" in df.columns else "项目"
+            value_col = "value" if "value" in df.columns else "值"
+            if item_col in df.columns and value_col in df.columns:
+                values = df.loc[
+                    df[item_col].astype(str).isin(["股票简称", "证券简称"]),
+                    value_col,
+                ]
+                if not values.empty and str(values.iloc[0]).strip():
+                    return str(values.iloc[0]).strip()
+    except Exception as exc:  # an unavailable quote source must not block adding a code
+        logger.warning("stock name lookup failed for %s: %s", code, exc)
+    return code
+
+
+def add_watchlist_codes(value: str, path=None, resolver=None) -> list[Stock]:
+    """Persist new dashboard watchlist codes and return the newly added stocks."""
+    codes = parse_stock_codes(value)
+    if not codes:
+        raise ValueError("请输入至少一个 6 位 A 股代码")
+
+    watchlist_path = _custom_watchlist_path(path)
+    custom = {stock.code: stock for stock in load_custom_watchlist(watchlist_path)}
+    defaults = {stock.code: stock for stock in WATCHLIST}
+    removed = load_removed_watchlist(watchlist_path)
+    existing = (set(defaults) | set(custom)) - removed
+    name_resolver = resolver or resolve_stock_name
+    added = []
+
+    for code in codes:
+        if code in existing:
+            continue
+        if code in defaults:
+            stock = defaults[code]
+            removed.discard(code)
+        else:
+            stock = Stock(code, name_resolver(code) or code, infer_market(code))
+            custom[code] = stock
+        existing.add(code)
+        added.append(stock)
+
+    if added:
+        _write_json_atomic(
+            watchlist_path,
+            [asdict(stock) for stock in custom.values()],
+        )
+        _write_json_atomic(_removed_watchlist_path(watchlist_path), sorted(removed))
+
+    return added
+
+
+def remove_watchlist_codes(value: str, path=None) -> list[Stock]:
+    """Remove built-in or custom codes from the managed watchlist."""
+    codes = parse_stock_codes(value)
+    if not codes:
+        raise ValueError("请选择至少一个要删除的股票代码")
+
+    watchlist_path = _custom_watchlist_path(path)
+    custom = {stock.code: stock for stock in load_custom_watchlist(watchlist_path)}
+    defaults = {stock.code: stock for stock in WATCHLIST}
+    current = {stock.code: stock for stock in get_watchlist(watchlist_path)}
+    removed_codes = load_removed_watchlist(watchlist_path)
+    removed_stocks = []
+
+    for code in codes:
+        stock = current.get(code)
+        if stock is None:
+            continue
+        removed_stocks.append(stock)
+        custom.pop(code, None)
+        if code in defaults:
+            removed_codes.add(code)
+
+    if removed_stocks:
+        _write_json_atomic(
+            watchlist_path,
+            [asdict(stock) for stock in custom.values()],
+        )
+        _write_json_atomic(
+            _removed_watchlist_path(watchlist_path),
+            sorted(removed_codes),
+        )
+
+    return removed_stocks

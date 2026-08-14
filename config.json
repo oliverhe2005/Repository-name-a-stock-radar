@@ -4,10 +4,10 @@
   "big_trade_threshold_cny": 1000000,
   "max_big_trades_per_stock": 100,
   "request_interval_seconds": 0.8,
+  "max_eastmoney_ir_pages": 1,
   "database_path": "data/watchlist.db",
   "report_dir": "reports",
   "schedule": "17:10",
   "enable_tick_big_trades": true,
-  "enable_eastmoney_fund_flow": true,
-  "enable_bse_ir_fallback": true
+  "enable_eastmoney_fund_flow": true
 }

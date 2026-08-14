@@ -248,7 +248,7 @@ def collect_block_trades(stock, cutoff, tz_name):
 
         if premium is not None:
             title_parts.append(
-                f"折溢率 {premium:+.2f}%"
+                f"折溢率 {premium * 100:+.2f}%"
             )
 
         summary_parts = []
@@ -296,76 +296,5 @@ def collect_block_trades(stock, cutoff, tz_name):
                 payload=row,
             )
         )
-
-    return out
-
-
-# ============================================================
-# INVESTOR Q&A
-# ============================================================
-
-def collect_ir(stock, cutoff, tz_name):
-    ak = _ak()
-    out = []
-
-    if stock.market == "sz":
-        df = safe_call(
-            f"irm:{stock.code}",
-            ak.stock_irm_cninfo,
-            symbol=stock.code,
-        )
-
-        for row in _records(df):
-            t = row.get("更新时间") or row.get("提问时间")
-
-            if not within_window(t, cutoff, tz_name):
-                continue
-
-            q = str(row.get("问题") or "").strip()
-            a = str(row.get("回答内容") or "").strip()
-
-            out.append(
-                Item(
-                    stock.code,
-                    stock.name,
-                    "ir",
-                    "深交所互动易",
-                    iso_local(t, tz_name),
-                    q[:220] or "互动易更新",
-                    a[:1800],
-                    "https://irm.cninfo.com.cn/",
-                    row,
-                )
-            )
-
-    elif stock.market == "sh":
-        df = safe_call(
-            f"einteraction:{stock.code}",
-            ak.stock_sns_sseinfo,
-            symbol=stock.code,
-        )
-
-        for row in _records(df):
-            t = row.get("回答时间") or row.get("问题时间")
-
-            if not within_window(t, cutoff, tz_name):
-                continue
-
-            q = str(row.get("问题") or "").strip()
-            a = str(row.get("回答") or "").strip()
-
-            out.append(
-                Item(
-                    stock.code,
-                    stock.name,
-                    "ir",
-                    "上证e互动",
-                    iso_local(t, tz_name),
-                    q[:220] or "上证e互动更新",
-                    a[:1800],
-                    "https://sns.sseinfo.com/",
-                    row,
-                )
-            )
 
     return out

@@ -13,3 +13,4 @@ class Item:
     summary: str = ""
     url: Optional[str] = None
     payload: dict[str, Any] = field(default_factory=dict)
+    subcategory: str = ""

@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS items (
     code TEXT NOT NULL,
     name TEXT NOT NULL,
     category TEXT NOT NULL,
+    subcategory TEXT NOT NULL DEFAULT '',
     source TEXT NOT NULL,
     event_time TEXT NOT NULL,
     title TEXT NOT NULL,
@@ -31,6 +32,14 @@ def connect(db_path: str) -> sqlite3.Connection:
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    columns = {
+        row["name"]
+        for row in conn.execute("PRAGMA table_info(items)").fetchall()
+    }
+    if "subcategory" not in columns:
+        conn.execute(
+            "ALTER TABLE items ADD COLUMN subcategory TEXT NOT NULL DEFAULT ''"
+        )
     return conn
 
 
@@ -39,18 +48,50 @@ def upsert_items(db_path: str, items: Iterable[Item]) -> tuple[int, int]:
     ignored = 0
     with connect(db_path) as conn:
         for item in items:
-            key = fingerprint(item.code, item.category, item.source, item.event_time, item.title, item.url)
+            key_parts = [
+                item.code,
+                item.category,
+                item.source,
+                item.event_time,
+                item.title,
+            ]
+            if item.category == "block_trade":
+                key_parts.append(item.summary)
+            key_parts.append(item.url)
+            key = fingerprint(*key_parts)
+
+            if item.category == "block_trade":
+                exists = conn.execute(
+                    """
+                    SELECT 1 FROM items
+                    WHERE code = ? AND category = ? AND event_time = ?
+                      AND title = ? AND COALESCE(summary, '') = ?
+                    LIMIT 1
+                    """,
+                    (
+                        item.code,
+                        item.category,
+                        item.event_time,
+                        item.title,
+                        item.summary,
+                    ),
+                ).fetchone()
+                if exists:
+                    ignored += 1
+                    continue
             cur = conn.execute(
                 """
                 INSERT OR IGNORE INTO items
-                (dedupe_key, code, name, category, source, event_time, title, summary, url, payload_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (dedupe_key, code, name, category, subcategory, source,
+                 event_time, title, summary, url, payload_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     key,
                     item.code,
                     item.name,
                     item.category,
+                    item.subcategory,
                     item.source,
                     item.event_time,
                     item.title,
@@ -69,7 +110,9 @@ def upsert_items(db_path: str, items: Iterable[Item]) -> tuple[int, int]:
 def fetch_recent(db_path: str, since_iso: str, codes=None, categories=None):
     sql = "SELECT * FROM items WHERE event_time >= ?"
     params = [since_iso]
-    if codes:
+    if codes is not None:
+        if not codes:
+            return []
         sql += " AND code IN (%s)" % ",".join("?" for _ in codes)
         params.extend(codes)
     if categories:

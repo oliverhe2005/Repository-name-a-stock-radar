@@ -4,19 +4,18 @@ import time
 from collectors.akshare_collectors import (
     collect_announcements,
     collect_block_trades,
-    collect_ir,
     collect_news,
 )
-from collectors.bse_ir import collect_bse_ir_fallback
+from collectors.eastmoney_ir import collect_eastmoney_ir
 from config import load_config
 from db import upsert_items
-from stocks import WATCHLIST
+from stocks import get_watchlist
 from utils import cutoff_time
 
 logger = logging.getLogger(__name__)
 
 
-def run_once():
+def run_once(stocks=None):
     cfg = load_config()
 
     cutoff = cutoff_time(
@@ -27,7 +26,9 @@ def run_once():
     all_items = []
     errors = []
 
-    for stock in WATCHLIST:
+    stocks = list(stocks) if stocks is not None else get_watchlist()
+
+    for stock in stocks:
 
         collectors = [
             (
@@ -56,31 +57,14 @@ def run_once():
             ),
             (
                 "ir",
-                lambda: collect_ir(
+                lambda: collect_eastmoney_ir(
                     stock,
-                    cutoff,
+                    None,
                     cfg["timezone"],
+                    cfg.get("max_eastmoney_ir_pages", 1),
                 ),
             ),
         ]
-
-        if (
-            stock.market == "bj"
-            and cfg.get(
-                "enable_bse_ir_fallback",
-                True,
-            )
-        ):
-            collectors.append(
-                (
-                    "bse_ir_fallback",
-                    lambda: collect_bse_ir_fallback(
-                        stock,
-                        cutoff,
-                        cfg["timezone"],
-                    ),
-                )
-            )
 
         for label, fn in collectors:
 
