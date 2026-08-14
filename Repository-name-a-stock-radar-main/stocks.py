@@ -74,6 +74,21 @@ def _custom_watchlist_path(path=None) -> Path:
     return Path(configured) if configured else ROOT / "data" / "custom_watchlist.json"
 
 
+def _removed_watchlist_path(path=None) -> Path:
+    custom_path = _custom_watchlist_path(path)
+    return custom_path.with_name(f"{custom_path.stem}_removed.json")
+
+
+def _write_json_atomic(path: Path, value) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = path.with_suffix(path.suffix + ".tmp")
+    temp_path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    temp_path.replace(path)
+
+
 def load_custom_watchlist(path=None) -> list[Stock]:
     watchlist_path = _custom_watchlist_path(path)
     if not watchlist_path.exists():
@@ -93,11 +108,25 @@ def load_custom_watchlist(path=None) -> list[Stock]:
         return []
 
 
+def load_removed_watchlist(path=None) -> set[str]:
+    removed_path = _removed_watchlist_path(path)
+    if not removed_path.exists():
+        return set()
+    try:
+        rows = json.loads(removed_path.read_text(encoding="utf-8"))
+        return {normalize_stock_code(code) for code in rows}
+    except (TypeError, ValueError, json.JSONDecodeError) as exc:
+        logger.warning("invalid removed watchlist %s: %s", removed_path, exc)
+        return set()
+
+
 def get_watchlist(path=None) -> list[Stock]:
     """Load the built-in list plus stocks added from the dashboard."""
     stocks = {stock.code: stock for stock in WATCHLIST}
     for stock in load_custom_watchlist(path):
         stocks[stock.code] = stock
+    for code in load_removed_watchlist(path):
+        stocks.pop(code, None)
     return list(stocks.values())
 
 
@@ -130,30 +159,64 @@ def add_watchlist_codes(value: str, path=None, resolver=None) -> list[Stock]:
 
     watchlist_path = _custom_watchlist_path(path)
     custom = {stock.code: stock for stock in load_custom_watchlist(watchlist_path)}
-    existing = {stock.code for stock in WATCHLIST} | set(custom)
+    defaults = {stock.code: stock for stock in WATCHLIST}
+    removed = load_removed_watchlist(watchlist_path)
+    existing = (set(defaults) | set(custom)) - removed
     name_resolver = resolver or resolve_stock_name
     added = []
 
     for code in codes:
         if code in existing:
             continue
-        stock = Stock(code, name_resolver(code) or code, infer_market(code))
-        custom[code] = stock
+        if code in defaults:
+            stock = defaults[code]
+            removed.discard(code)
+        else:
+            stock = Stock(code, name_resolver(code) or code, infer_market(code))
+            custom[code] = stock
         existing.add(code)
         added.append(stock)
 
     if added:
-        watchlist_path.parent.mkdir(parents=True, exist_ok=True)
-        temp_path = watchlist_path.with_suffix(watchlist_path.suffix + ".tmp")
-        temp_path.write_text(
-            json.dumps(
-                [asdict(stock) for stock in custom.values()],
-                ensure_ascii=False,
-                indent=2,
-            )
-            + "\n",
-            encoding="utf-8",
+        _write_json_atomic(
+            watchlist_path,
+            [asdict(stock) for stock in custom.values()],
         )
-        temp_path.replace(watchlist_path)
+        _write_json_atomic(_removed_watchlist_path(watchlist_path), sorted(removed))
 
     return added
+
+
+def remove_watchlist_codes(value: str, path=None) -> list[Stock]:
+    """Remove built-in or custom codes from the managed watchlist."""
+    codes = parse_stock_codes(value)
+    if not codes:
+        raise ValueError("请选择至少一个要删除的股票代码")
+
+    watchlist_path = _custom_watchlist_path(path)
+    custom = {stock.code: stock for stock in load_custom_watchlist(watchlist_path)}
+    defaults = {stock.code: stock for stock in WATCHLIST}
+    current = {stock.code: stock for stock in get_watchlist(watchlist_path)}
+    removed_codes = load_removed_watchlist(watchlist_path)
+    removed_stocks = []
+
+    for code in codes:
+        stock = current.get(code)
+        if stock is None:
+            continue
+        removed_stocks.append(stock)
+        custom.pop(code, None)
+        if code in defaults:
+            removed_codes.add(code)
+
+    if removed_stocks:
+        _write_json_atomic(
+            watchlist_path,
+            [asdict(stock) for stock in custom.values()],
+        )
+        _write_json_atomic(
+            _removed_watchlist_path(watchlist_path),
+            sorted(removed_codes),
+        )
+
+    return removed_stocks

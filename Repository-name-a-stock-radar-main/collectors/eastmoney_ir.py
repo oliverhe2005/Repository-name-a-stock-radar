@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from dataclasses import asdict
 from urllib.parse import urlencode
 
 import requests
@@ -67,8 +68,17 @@ def _fetch_page(stock, qatype: int, page: int) -> dict:
     response.raise_for_status()
     payload = response.json()
     if payload.get("rc") != 1:
+        message = _clean(payload.get("me") or payload.get("Message"))
+        if "暂无结果" in message or "暂无数据" in message:
+            return {
+                "rc": 1,
+                "re": [],
+                "TotalPage": 0,
+                "PageIndex": page,
+                "StockName": "",
+            }
         raise RuntimeError(
-            f"东方财富问董秘返回异常：{payload.get('me') or payload.get('error_code')}"
+            f"东方财富问董秘返回异常：{message or payload.get('error_code')}"
         )
     return payload
 
@@ -117,7 +127,7 @@ def _to_item(stock, row: dict, qatype: int, tz_name: str) -> Item | None:
     payload["eastmoney_section"] = IR_SECTION_LABELS[subcategory]
     return Item(
         code=stock.code,
-        name=stock.name,
+        name=_clean(row.get("stockbar_name")) or stock.name,
         category="ir",
         subcategory=subcategory,
         source=f"东方财富-问董秘-{IR_SECTION_LABELS[subcategory]}",
@@ -152,15 +162,34 @@ def collect_eastmoney_ir(stock, cutoff, tz_name, max_pages=10):
                 parsed = parse_local_datetime(event_time, tz_name)
                 if parsed is not None:
                     parsed_times.append(parsed)
-                if not within_window(event_time, cutoff, tz_name):
+                if cutoff is not None and not within_window(
+                    event_time, cutoff, tz_name
+                ):
                     continue
                 item = _to_item(stock, row, qatype, tz_name)
                 if item is not None:
                     out.append(item)
 
-            if parsed_times and min(parsed_times) < cutoff:
+            if cutoff is not None and parsed_times and min(parsed_times) < cutoff:
                 break
             if page >= int(payload.get("TotalPage") or page):
                 break
 
     return out
+
+
+def query_eastmoney_ir(code: str, tz_name="Asia/Shanghai", pages=1) -> list[dict]:
+    """Direct live query used by the dashboard; it ignores the 24h news window."""
+    from stocks import Stock, infer_market, normalize_stock_code
+
+    code = normalize_stock_code(code)
+    stock = Stock(code, code, infer_market(code))
+    return [
+        asdict(item)
+        for item in collect_eastmoney_ir(
+            stock,
+            cutoff=None,
+            tz_name=tz_name,
+            max_pages=pages,
+        )
+    ]

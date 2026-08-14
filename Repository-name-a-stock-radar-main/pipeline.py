@@ -59,9 +59,9 @@ def run_once(stocks=None):
                 "ir",
                 lambda: collect_eastmoney_ir(
                     stock,
-                    cutoff,
+                    None,
                     cfg["timezone"],
-                    cfg.get("max_eastmoney_ir_pages", 10),
+                    cfg.get("max_eastmoney_ir_pages", 1),
                 ),
             ),
         ]

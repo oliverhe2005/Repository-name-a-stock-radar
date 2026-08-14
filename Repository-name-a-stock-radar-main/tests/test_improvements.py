@@ -10,7 +10,13 @@ from zoneinfo import ZoneInfo
 from collectors.eastmoney_ir import collect_eastmoney_ir
 from db import connect, fetch_recent, upsert_items
 from models import Item
-from stocks import Stock, add_watchlist_codes, get_watchlist, infer_market
+from stocks import (
+    Stock,
+    add_watchlist_codes,
+    get_watchlist,
+    infer_market,
+    remove_watchlist_codes,
+)
 
 
 class WatchlistTests(unittest.TestCase):
@@ -33,6 +39,18 @@ class WatchlistTests(unittest.TestCase):
                 "600519", path=path, resolver=lambda code: code
             )
             self.assertEqual(duplicate, [])
+
+            removed = remove_watchlist_codes("600519, 002371", path=path)
+            self.assertEqual({s.code for s in removed}, {"600519", "002371"})
+            remaining_codes = {s.code for s in get_watchlist(path)}
+            self.assertNotIn("600519", remaining_codes)
+            self.assertNotIn("002371", remaining_codes)
+
+            restored = add_watchlist_codes(
+                "002371", path=path, resolver=lambda code: code
+            )
+            self.assertEqual([s.code for s in restored], ["002371"])
+            self.assertIn("002371", {s.code for s in get_watchlist(path)})
 
     def test_market_inference(self):
         self.assertEqual(infer_market("688001"), "sh")
@@ -144,6 +162,36 @@ class EastmoneyIrTests(unittest.TestCase):
         company_release = next(i for i in items if i.subcategory == "company_release")
         self.assertTrue(company_release.url.startswith("https://"))
         self.assertEqual(company_release.summary, "公司发布材料正文")
+
+    def test_empty_section_does_not_hide_other_sections(self):
+        tz = ZoneInfo("Asia/Shanghai")
+        now = datetime.now(tz)
+        stamp = now.strftime("%Y-%m-%d %H:%M:%S")
+        stock = Stock("603986", "兆易创新", "sh")
+
+        def fake_page(_stock, qatype, _page):
+            if qatype == 2:
+                return {"rc": 1, "re": [], "TotalPage": 0, "PageIndex": 1}
+            row = {
+                "post_id": qatype,
+                "stockbar_code": stock.code,
+                "stockbar_name": stock.name,
+                "post_publish_time": stamp,
+                "post_display_time": stamp,
+                "post_title": "公司资料",
+                "post_content": "公司资料正文",
+                "ask_question": "投资者问题",
+                "ask_answer": "公司回答",
+            }
+            return {"rc": 1, "re": [row], "TotalPage": 1, "PageIndex": 1}
+
+        with patch("collectors.eastmoney_ir._fetch_page", side_effect=fake_page):
+            items = collect_eastmoney_ir(stock, None, "Asia/Shanghai", max_pages=1)
+
+        self.assertEqual(
+            {item.subcategory for item in items},
+            {"latest_reply", "company_release"},
+        )
 
 
 if __name__ == "__main__":

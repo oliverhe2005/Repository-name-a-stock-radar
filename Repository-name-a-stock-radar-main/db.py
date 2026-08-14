@@ -48,7 +48,37 @@ def upsert_items(db_path: str, items: Iterable[Item]) -> tuple[int, int]:
     ignored = 0
     with connect(db_path) as conn:
         for item in items:
-            key = fingerprint(item.code, item.category, item.source, item.event_time, item.title, item.url)
+            key_parts = [
+                item.code,
+                item.category,
+                item.source,
+                item.event_time,
+                item.title,
+            ]
+            if item.category == "block_trade":
+                key_parts.append(item.summary)
+            key_parts.append(item.url)
+            key = fingerprint(*key_parts)
+
+            if item.category == "block_trade":
+                exists = conn.execute(
+                    """
+                    SELECT 1 FROM items
+                    WHERE code = ? AND category = ? AND event_time = ?
+                      AND title = ? AND COALESCE(summary, '') = ?
+                    LIMIT 1
+                    """,
+                    (
+                        item.code,
+                        item.category,
+                        item.event_time,
+                        item.title,
+                        item.summary,
+                    ),
+                ).fetchone()
+                if exists:
+                    ignored += 1
+                    continue
             cur = conn.execute(
                 """
                 INSERT OR IGNORE INTO items

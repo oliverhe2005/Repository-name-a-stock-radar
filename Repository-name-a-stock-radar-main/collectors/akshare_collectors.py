@@ -248,7 +248,7 @@ def collect_block_trades(stock, cutoff, tz_name):
 
         if premium is not None:
             title_parts.append(
-                f"折溢率 {premium:+.2f}%"
+                f"折溢率 {premium * 100:+.2f}%"
             )
 
         summary_parts = []
