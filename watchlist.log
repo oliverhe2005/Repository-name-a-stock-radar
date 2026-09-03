@@ -8495,3 +8495,168 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='guba.eastmoney.com', por
 2026-09-02 22:44:07,897 | INFO | pipeline | 603986 announcement: 1 items
 2026-09-02 22:44:08,698 | INFO | pipeline | 603986 block_trade: 0 items
 2026-09-02 22:44:11,380 | INFO | pipeline | 603986 ir: 45 items
+2026-09-03 22:42:52,708 | INFO | pipeline | 002371 news: 0 items
+2026-09-03 22:43:50,039 | INFO | pipeline | 002371 announcement: 0 items
+2026-09-03 22:43:52,446 | INFO | pipeline | 002371 block_trade: 0 items
+2026-09-03 22:43:55,494 | WARNING | utils | eastmoney-ir:002371:3:1 failed (1/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:43:57,498 | INFO | pipeline | 002371 ir: 42 items
+2026-09-03 22:43:59,124 | INFO | pipeline | 603268 news: 1 items
+2026-09-03 22:43:59,928 | INFO | pipeline | 603268 announcement: 0 items
+2026-09-03 22:44:00,729 | INFO | pipeline | 603268 block_trade: 0 items
+2026-09-03 22:44:03,970 | INFO | pipeline | 603268 ir: 18 items
+2026-09-03 22:44:06,376 | INFO | pipeline | 688188 news: 1 items
+2026-09-03 22:44:07,180 | INFO | pipeline | 688188 announcement: 0 items
+2026-09-03 22:44:07,982 | INFO | pipeline | 688188 block_trade: 0 items
+2026-09-03 22:44:11,220 | INFO | pipeline | 688188 ir: 25 items
+2026-09-03 22:44:12,819 | INFO | pipeline | 002156 news: 0 items
+2026-09-03 22:44:13,623 | INFO | pipeline | 002156 announcement: 0 items
+2026-09-03 22:44:14,424 | INFO | pipeline | 002156 block_trade: 0 items
+2026-09-03 22:44:17,733 | INFO | pipeline | 002156 ir: 45 items
+2026-09-03 22:44:20,650 | INFO | pipeline | 688017 news: 3 items
+2026-09-03 22:44:21,454 | INFO | pipeline | 688017 announcement: 0 items
+2026-09-03 22:44:22,256 | INFO | pipeline | 688017 block_trade: 0 items
+2026-09-03 22:44:25,452 | INFO | pipeline | 688017 ir: 24 items
+2026-09-03 22:44:27,783 | INFO | pipeline | 300620 news: 2 items
+2026-09-03 22:44:28,587 | INFO | pipeline | 300620 announcement: 0 items
+2026-09-03 22:44:29,388 | INFO | pipeline | 300620 block_trade: 0 items
+2026-09-03 22:44:33,010 | INFO | pipeline | 300620 ir: 42 items
+2026-09-03 22:44:34,579 | INFO | pipeline | 688825 news: 3 items
+2026-09-03 22:44:35,384 | INFO | pipeline | 688825 announcement: 0 items
+2026-09-03 22:44:36,185 | INFO | pipeline | 688825 block_trade: 0 items
+2026-09-03 22:44:41,393 | INFO | pipeline | 688825 ir: 0 items
+2026-09-03 22:44:45,839 | INFO | pipeline | 300373 news: 0 items
+2026-09-03 22:44:46,644 | INFO | pipeline | 300373 announcement: 0 items
+2026-09-03 22:44:47,445 | INFO | pipeline | 300373 block_trade: 0 items
+2026-09-03 22:44:50,354 | WARNING | utils | eastmoney-ir:300373:2:1 failed (1/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:44:55,175 | INFO | pipeline | 300373 ir: 45 items
+2026-09-03 22:44:57,784 | INFO | pipeline | 688020 news: 2 items
+2026-09-03 22:44:58,588 | INFO | pipeline | 688020 announcement: 0 items
+2026-09-03 22:44:59,389 | INFO | pipeline | 688020 block_trade: 0 items
+2026-09-03 22:45:02,697 | INFO | pipeline | 688020 ir: 39 items
+2026-09-03 22:45:06,343 | INFO | pipeline | 002463 news: 2 items
+2026-09-03 22:45:07,148 | INFO | pipeline | 002463 announcement: 1 items
+2026-09-03 22:45:07,949 | INFO | pipeline | 002463 block_trade: 0 items
+2026-09-03 22:45:12,293 | INFO | pipeline | 002463 ir: 45 items
+2026-09-03 22:45:13,832 | INFO | pipeline | 002851 news: 2 items
+2026-09-03 22:45:14,637 | INFO | pipeline | 002851 announcement: 2 items
+2026-09-03 22:45:15,438 | INFO | pipeline | 002851 block_trade: 0 items
+2026-09-03 22:45:20,006 | INFO | pipeline | 002851 ir: 45 items
+2026-09-03 22:45:21,577 | INFO | pipeline | 920045 news: 3 items
+2026-09-03 22:45:22,382 | INFO | pipeline | 920045 announcement: 7 items
+2026-09-03 22:45:23,184 | INFO | pipeline | 920045 block_trade: 2 items
+2026-09-03 22:45:30,561 | INFO | pipeline | 920045 ir: 5 items
+2026-09-03 22:45:32,932 | INFO | pipeline | 300394 news: 1 items
+2026-09-03 22:45:33,737 | INFO | pipeline | 300394 announcement: 0 items
+2026-09-03 22:45:34,538 | INFO | pipeline | 300394 block_trade: 0 items
+2026-09-03 22:45:38,051 | WARNING | utils | eastmoney-ir:300394:2:1 failed (1/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:45:40,655 | WARNING | utils | eastmoney-ir:300394:3:1 failed (1/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:45:42,709 | INFO | pipeline | 300394 ir: 45 items
+2026-09-03 22:45:44,257 | INFO | pipeline | 002384 news: 2 items
+2026-09-03 22:45:45,061 | INFO | pipeline | 002384 announcement: 1 items
+2026-09-03 22:45:45,863 | INFO | pipeline | 002384 block_trade: 0 items
+2026-09-03 22:45:47,201 | WARNING | utils | eastmoney-ir:002384:1:1 failed (1/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:45:49,934 | WARNING | utils | eastmoney-ir:002384:1:1 failed (2/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:45:54,754 | WARNING | utils | eastmoney-ir:002384:1:1 failed (3/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:45:54,754 | ERROR | pipeline | collector failed: 002384 ir
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1106, in _validate_conn
+    conn.connect()
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/util/ssl_.py", line 433, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/util/ssl_.py", line 477, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/ssl.py", line 1382, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 60, in <lambda>
+    lambda: collect_eastmoney_ir(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/eastmoney_ir.py", line 149, in collect_eastmoney_ir
+    payload = safe_call(
+              ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/eastmoney_ir.py", line 45, in _fetch_page
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/requests/api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/requests/adapters.py", line 727, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:45:56,350 | INFO | pipeline | 300502 news: 2 items
+2026-09-03 22:45:57,154 | INFO | pipeline | 300502 announcement: 0 items
+2026-09-03 22:45:57,956 | INFO | pipeline | 300502 block_trade: 0 items
+2026-09-03 22:46:01,211 | INFO | pipeline | 300502 ir: 45 items
+2026-09-03 22:46:03,898 | INFO | pipeline | 300750 news: 3 items
+2026-09-03 22:46:04,704 | INFO | pipeline | 300750 announcement: 2 items
+2026-09-03 22:46:05,507 | INFO | pipeline | 300750 block_trade: 6 items
+2026-09-03 22:46:08,730 | INFO | pipeline | 300750 ir: 45 items
+2026-09-03 22:46:12,409 | INFO | pipeline | 301488 news: 0 items
+2026-09-03 22:46:13,215 | INFO | pipeline | 301488 announcement: 5 items
+2026-09-03 22:46:14,016 | INFO | pipeline | 301488 block_trade: 0 items
+2026-09-03 22:46:17,282 | INFO | pipeline | 301488 ir: 43 items
+2026-09-03 22:46:19,192 | INFO | pipeline | 603986 news: 1 items
+2026-09-03 22:46:19,997 | INFO | pipeline | 603986 announcement: 1 items
+2026-09-03 22:46:20,799 | INFO | pipeline | 603986 block_trade: 0 items
+2026-09-03 22:46:23,759 | WARNING | utils | eastmoney-ir:603986:3:1 failed (1/3): HTTPSConnectionPool(host='guba.eastmoney.com', port=443): Max retries exceeded with url: /interface/GetData.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)')))
+2026-09-03 22:46:25,754 | INFO | pipeline | 603986 ir: 45 items
