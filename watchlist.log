@@ -18487,3 +18487,1335 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~~~^^^^^^^^
 TypeError: 'NoneType' object is not subscriptable
 2026-10-03 22:57:31,249 | INFO | pipeline | 603986 ir: 45 items
+2026-10-04 23:29:12,779 | INFO | pipeline | 002371 news: 0 items
+2026-10-04 23:29:14,296 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:29:16,596 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:29:20,025 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:29:20,026 | ERROR | pipeline | collector failed: 002371 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:29:22,391 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:29:24,256 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:29:27,182 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:29:27,182 | ERROR | pipeline | collector failed: 002371 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:29:32,562 | INFO | pipeline | 002371 ir: 42 items
+2026-10-04 23:29:34,147 | INFO | pipeline | 603268 news: 0 items
+2026-10-04 23:29:37,212 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:29:40,458 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:29:44,274 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:29:44,274 | ERROR | pipeline | collector failed: 603268 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:29:45,947 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:29:48,510 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:29:51,508 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:29:51,509 | ERROR | pipeline | collector failed: 603268 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:29:55,963 | INFO | pipeline | 603268 ir: 18 items
+2026-10-04 23:29:57,459 | INFO | pipeline | 688188 news: 0 items
+2026-10-04 23:29:58,679 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:30:00,903 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:30:03,753 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:30:03,753 | ERROR | pipeline | collector failed: 688188 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:30:05,215 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:07,082 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:10,170 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:10,171 | ERROR | pipeline | collector failed: 688188 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:30:15,573 | INFO | pipeline | 688188 ir: 25 items
+2026-10-04 23:30:17,073 | INFO | pipeline | 002156 news: 0 items
+2026-10-04 23:30:18,474 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:30:21,846 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:30:26,003 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:30:26,003 | ERROR | pipeline | collector failed: 002156 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:30:27,495 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:29,310 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:36,984 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:36,985 | ERROR | pipeline | collector failed: 002156 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:30:40,457 | INFO | pipeline | 002156 ir: 45 items
+2026-10-04 23:30:42,981 | INFO | pipeline | 688017 news: 0 items
+2026-10-04 23:30:44,145 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:30:45,822 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:30:48,722 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:30:48,722 | ERROR | pipeline | collector failed: 688017 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:30:50,084 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:52,391 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:55,411 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:30:55,411 | ERROR | pipeline | collector failed: 688017 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:30:59,617 | INFO | pipeline | 688017 ir: 24 items
+2026-10-04 23:31:01,103 | INFO | pipeline | 300620 news: 0 items
+2026-10-04 23:31:03,890 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:31:05,562 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:31:08,834 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:31:08,834 | ERROR | pipeline | collector failed: 300620 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:31:10,151 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:11,641 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:14,628 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:14,628 | ERROR | pipeline | collector failed: 300620 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:31:18,466 | INFO | pipeline | 300620 ir: 42 items
+2026-10-04 23:31:20,033 | INFO | pipeline | 688825 news: 0 items
+2026-10-04 23:31:22,616 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:31:24,182 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:31:27,736 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:31:27,736 | ERROR | pipeline | collector failed: 688825 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:31:29,618 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:33,032 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:36,142 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:36,143 | ERROR | pipeline | collector failed: 688825 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:31:39,333 | INFO | pipeline | 688825 ir: 1 items
+2026-10-04 23:31:41,816 | INFO | pipeline | 300373 news: 0 items
+2026-10-04 23:31:43,060 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:31:48,186 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:31:52,045 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:31:52,045 | ERROR | pipeline | collector failed: 300373 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:31:53,589 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:55,383 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:58,391 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:31:58,392 | ERROR | pipeline | collector failed: 300373 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:32:01,638 | INFO | pipeline | 300373 ir: 45 items
+2026-10-04 23:32:04,158 | INFO | pipeline | 688020 news: 0 items
+2026-10-04 23:32:05,418 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:32:07,067 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:32:09,842 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:32:09,843 | ERROR | pipeline | collector failed: 688020 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:32:11,278 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:13,124 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:16,196 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:16,197 | ERROR | pipeline | collector failed: 688020 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:32:19,366 | INFO | pipeline | 688020 ir: 39 items
+2026-10-04 23:32:23,098 | INFO | pipeline | 002463 news: 0 items
+2026-10-04 23:32:25,055 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:32:26,699 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:32:30,624 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:32:30,624 | ERROR | pipeline | collector failed: 002463 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:32:32,358 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:34,039 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:37,132 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:37,132 | ERROR | pipeline | collector failed: 002463 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:32:42,307 | INFO | pipeline | 002463 ir: 45 items
+2026-10-04 23:32:44,869 | INFO | pipeline | 002851 news: 0 items
+2026-10-04 23:32:46,178 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:32:47,849 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:32:51,771 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:32:51,771 | ERROR | pipeline | collector failed: 002851 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:32:53,076 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:54,915 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:57,611 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:32:57,611 | ERROR | pipeline | collector failed: 002851 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:33:01,777 | INFO | pipeline | 002851 ir: 45 items
+2026-10-04 23:33:03,590 | INFO | pipeline | 920045 news: 0 items
+2026-10-04 23:33:05,890 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:33:07,520 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:33:10,318 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:33:10,318 | ERROR | pipeline | collector failed: 920045 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:33:11,793 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:13,502 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:16,469 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:16,469 | ERROR | pipeline | collector failed: 920045 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:33:21,209 | INFO | pipeline | 920045 ir: 5 items
+2026-10-04 23:33:22,735 | INFO | pipeline | 300394 news: 0 items
+2026-10-04 23:33:25,124 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:33:26,707 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:33:29,608 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:33:29,608 | ERROR | pipeline | collector failed: 300394 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:33:30,898 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:33,017 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:36,040 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:36,041 | ERROR | pipeline | collector failed: 300394 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:33:39,288 | INFO | pipeline | 300394 ir: 45 items
+2026-10-04 23:33:41,824 | INFO | pipeline | 002384 news: 0 items
+2026-10-04 23:33:44,009 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:33:46,259 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:33:50,064 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:33:50,064 | ERROR | pipeline | collector failed: 002384 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:33:51,472 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:53,296 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:56,045 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:33:56,046 | ERROR | pipeline | collector failed: 002384 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:34:02,290 | INFO | pipeline | 002384 ir: 45 items
+2026-10-04 23:34:03,877 | INFO | pipeline | 300502 news: 0 items
+2026-10-04 23:34:05,253 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:34:06,942 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:34:09,741 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:34:09,741 | ERROR | pipeline | collector failed: 300502 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:34:11,042 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:12,531 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:15,553 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:15,553 | ERROR | pipeline | collector failed: 300502 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:34:20,873 | INFO | pipeline | 300502 ir: 45 items
+2026-10-04 23:34:22,450 | INFO | pipeline | 300750 news: 0 items
+2026-10-04 23:34:25,351 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:34:27,128 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:34:29,987 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:34:29,987 | ERROR | pipeline | collector failed: 300750 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:34:31,302 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:33,737 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:36,557 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:36,557 | ERROR | pipeline | collector failed: 300750 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:34:40,886 | INFO | pipeline | 300750 ir: 45 items
+2026-10-04 23:34:42,396 | INFO | pipeline | 301488 news: 0 items
+2026-10-04 23:34:43,721 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:34:45,682 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:34:51,918 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:34:51,918 | ERROR | pipeline | collector failed: 301488 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:34:53,098 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:55,051 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:57,732 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:34:57,733 | ERROR | pipeline | collector failed: 301488 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:35:02,258 | INFO | pipeline | 301488 ir: 43 items
+2026-10-04 23:35:04,066 | INFO | pipeline | 603986 news: 0 items
+2026-10-04 23:35:05,982 | WARNING | utils | announcement-market:20261003 failed (1/3): '代码'
+2026-10-04 23:35:07,551 | WARNING | utils | announcement-market:20261003 failed (2/3): '代码'
+2026-10-04 23:35:11,076 | WARNING | utils | announcement-market:20261003 failed (3/3): '代码'
+2026-10-04 23:35:11,076 | ERROR | pipeline | collector failed: 603986 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-04 23:35:13,546 | WARNING | utils | block-trade-market:20261003:20261004 failed (1/3): 'NoneType' object is not subscriptable
+2026-10-04 23:35:15,993 | WARNING | utils | block-trade-market:20261003:20261004 failed (2/3): 'NoneType' object is not subscriptable
+2026-10-04 23:35:18,939 | WARNING | utils | block-trade-market:20261003:20261004 failed (3/3): 'NoneType' object is not subscriptable
+2026-10-04 23:35:18,939 | ERROR | pipeline | collector failed: 603986 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/akshare/stock/stock_dzjy_em.py", line 111, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-10-04 23:35:24,957 | INFO | pipeline | 603986 ir: 45 items
