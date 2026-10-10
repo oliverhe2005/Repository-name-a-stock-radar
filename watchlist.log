@@ -23959,3 +23959,120 @@ TypeError: 'NoneType' object is not subscriptable
 2026-10-10 01:12:41,161 | INFO | pipeline | 603986 announcement: 2 items
 2026-10-10 01:12:41,963 | INFO | pipeline | 603986 block_trade: 0 items
 2026-10-10 01:12:44,989 | INFO | pipeline | 603986 ir: 45 items
+2026-10-10 23:56:57,965 | INFO | pipeline | 002371 news: 0 items
+2026-10-10 23:57:44,965 | INFO | pipeline | 002371 announcement: 0 items
+2026-10-10 23:57:47,214 | INFO | pipeline | 002371 block_trade: 0 items
+2026-10-10 23:57:50,544 | INFO | pipeline | 002371 ir: 42 items
+2026-10-10 23:57:54,072 | INFO | pipeline | 603268 news: 0 items
+2026-10-10 23:57:54,877 | INFO | pipeline | 603268 announcement: 0 items
+2026-10-10 23:57:55,678 | INFO | pipeline | 603268 block_trade: 0 items
+2026-10-10 23:57:59,677 | INFO | pipeline | 603268 ir: 18 items
+2026-10-10 23:58:01,292 | INFO | pipeline | 688188 news: 0 items
+2026-10-10 23:58:02,096 | INFO | pipeline | 688188 announcement: 0 items
+2026-10-10 23:58:02,897 | INFO | pipeline | 688188 block_trade: 0 items
+2026-10-10 23:58:06,381 | INFO | pipeline | 688188 ir: 25 items
+2026-10-10 23:58:08,008 | INFO | pipeline | 002156 news: 0 items
+2026-10-10 23:58:08,812 | INFO | pipeline | 002156 announcement: 0 items
+2026-10-10 23:58:09,613 | INFO | pipeline | 002156 block_trade: 0 items
+2026-10-10 23:58:12,812 | INFO | pipeline | 002156 ir: 45 items
+2026-10-10 23:58:14,772 | INFO | pipeline | 688017 news: 0 items
+2026-10-10 23:58:15,577 | INFO | pipeline | 688017 announcement: 1 items
+2026-10-10 23:58:16,378 | INFO | pipeline | 688017 block_trade: 0 items
+2026-10-10 23:58:19,577 | INFO | pipeline | 688017 ir: 24 items
+2026-10-10 23:58:22,169 | INFO | pipeline | 300620 news: 0 items
+2026-10-10 23:58:22,974 | INFO | pipeline | 300620 announcement: 1 items
+2026-10-10 23:58:23,775 | INFO | pipeline | 300620 block_trade: 0 items
+2026-10-10 23:58:27,299 | INFO | pipeline | 300620 ir: 42 items
+2026-10-10 23:58:30,300 | INFO | pipeline | 688825 news: 3 items
+2026-10-10 23:58:31,104 | INFO | pipeline | 688825 announcement: 0 items
+2026-10-10 23:58:31,905 | INFO | pipeline | 688825 block_trade: 0 items
+2026-10-10 23:58:35,016 | INFO | pipeline | 688825 ir: 1 items
+2026-10-10 23:58:38,703 | INFO | pipeline | 300373 news: 0 items
+2026-10-10 23:58:39,507 | INFO | pipeline | 300373 announcement: 0 items
+2026-10-10 23:58:40,308 | INFO | pipeline | 300373 block_trade: 0 items
+2026-10-10 23:58:44,517 | INFO | pipeline | 300373 ir: 45 items
+2026-10-10 23:58:49,128 | INFO | pipeline | 688020 news: 0 items
+2026-10-10 23:58:49,933 | INFO | pipeline | 688020 announcement: 2 items
+2026-10-10 23:58:50,734 | INFO | pipeline | 688020 block_trade: 0 items
+2026-10-10 23:58:54,235 | INFO | pipeline | 688020 ir: 39 items
+2026-10-10 23:58:57,821 | INFO | pipeline | 002463 news: 0 items
+2026-10-10 23:58:58,626 | INFO | pipeline | 002463 announcement: 0 items
+2026-10-10 23:58:59,427 | INFO | pipeline | 002463 block_trade: 0 items
+2026-10-10 23:59:03,809 | INFO | pipeline | 002463 ir: 45 items
+2026-10-10 23:59:06,137 | INFO | pipeline | 002851 news: 0 items
+2026-10-10 23:59:06,942 | INFO | pipeline | 002851 announcement: 2 items
+2026-10-10 23:59:07,743 | INFO | pipeline | 002851 block_trade: 0 items
+2026-10-10 23:59:13,317 | INFO | pipeline | 002851 ir: 45 items
+2026-10-10 23:59:14,908 | INFO | pipeline | 920045 news: 0 items
+2026-10-10 23:59:15,713 | INFO | pipeline | 920045 announcement: 0 items
+2026-10-10 23:59:16,514 | INFO | pipeline | 920045 block_trade: 0 items
+2026-10-10 23:59:24,185 | INFO | pipeline | 920045 ir: 5 items
+2026-10-10 23:59:25,710 | INFO | pipeline | 300394 news: 3 items
+2026-10-10 23:59:26,515 | INFO | pipeline | 300394 announcement: 1 items
+2026-10-10 23:59:27,316 | INFO | pipeline | 300394 block_trade: 0 items
+2026-10-10 23:59:33,045 | INFO | pipeline | 300394 ir: 45 items
+2026-10-10 23:59:35,165 | INFO | pipeline | 002384 news: 0 items
+2026-10-10 23:59:35,970 | INFO | pipeline | 002384 announcement: 2 items
+2026-10-10 23:59:36,771 | INFO | pipeline | 002384 block_trade: 0 items
+2026-10-10 23:59:39,963 | INFO | pipeline | 002384 ir: 45 items
+2026-10-10 23:59:41,488 | INFO | pipeline | 300502 news: 0 items
+2026-10-10 23:59:42,293 | INFO | pipeline | 300502 announcement: 0 items
+2026-10-10 23:59:43,094 | INFO | pipeline | 300502 block_trade: 0 items
+2026-10-10 23:59:46,287 | INFO | pipeline | 300502 ir: 45 items
+2026-10-10 23:59:49,244 | INFO | pipeline | 300750 news: 0 items
+2026-10-10 23:59:50,049 | INFO | pipeline | 300750 announcement: 0 items
+2026-10-10 23:59:50,851 | INFO | pipeline | 300750 block_trade: 3 items
+2026-10-10 23:59:54,055 | INFO | pipeline | 300750 ir: 45 items
+2026-10-10 23:59:55,636 | INFO | pipeline | 301488 news: 0 items
+2026-10-10 23:59:56,441 | INFO | pipeline | 301488 announcement: 0 items
+2026-10-10 23:59:57,242 | INFO | pipeline | 301488 block_trade: 0 items
+2026-10-11 00:00:02,114 | INFO | pipeline | 301488 ir: 43 items
+2026-10-11 00:00:03,692 | INFO | pipeline | 603986 news: 0 items
+2026-10-11 00:00:05,099 | WARNING | utils | announcement-market:20261011 failed (1/3): '代码'
+2026-10-11 00:00:06,639 | WARNING | utils | announcement-market:20261011 failed (2/3): '代码'
+2026-10-11 00:00:11,073 | WARNING | utils | announcement-market:20261011 failed (3/3): '代码'
+2026-10-11 00:00:11,073 | ERROR | pipeline | collector failed: 603986 announcement
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '代码'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 44, in <lambda>
+    lambda: collect_announcements(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 142, in collect_announcements
+    df = _announcement_day(date_str)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 130, in _announcement_day
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 144, in stock_notice_report
+    return _stock_notice_report(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/akshare/stock_fundamental/stock_notice.py", line 118, in _stock_notice_report
+    big_df["网址"] = url + big_df["代码"] + "/" + big_df["编码"] + ".html"
+                           ~~~~~~^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: '代码'
+2026-10-11 00:00:12,963 | INFO | pipeline | 603986 block_trade: 0 items
+2026-10-11 00:00:17,525 | INFO | pipeline | 603986 ir: 45 items
