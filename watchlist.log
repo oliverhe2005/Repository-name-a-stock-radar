@@ -29152,3 +29152,525 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~~~^^^^^^^^
 TypeError: 'NoneType' object is not subscriptable
 2026-11-08 00:42:53,479 | INFO | pipeline | 603986 ir: 45 items
+2026-11-09 00:46:22,874 | INFO | pipeline | 002371 news: 0 items
+2026-11-09 00:46:27,004 | INFO | pipeline | 002371 announcement: 0 items
+2026-11-09 00:46:28,863 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:30,652 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:33,481 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:33,481 | ERROR | pipeline | collector failed: 002371 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:46:37,920 | INFO | pipeline | 002371 ir: 42 items
+2026-11-09 00:46:39,437 | INFO | pipeline | 603268 news: 1 items
+2026-11-09 00:46:40,238 | INFO | pipeline | 603268 announcement: 0 items
+2026-11-09 00:46:41,583 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:43,372 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:46,656 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:46,656 | ERROR | pipeline | collector failed: 603268 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:46:49,787 | INFO | pipeline | 603268 ir: 18 items
+2026-11-09 00:46:51,307 | INFO | pipeline | 688188 news: 0 items
+2026-11-09 00:46:52,108 | INFO | pipeline | 688188 announcement: 0 items
+2026-11-09 00:46:53,463 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:55,451 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:58,297 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:46:58,297 | ERROR | pipeline | collector failed: 688188 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:47:01,937 | INFO | pipeline | 688188 ir: 25 items
+2026-11-09 00:47:03,476 | INFO | pipeline | 002156 news: 0 items
+2026-11-09 00:47:04,278 | INFO | pipeline | 002156 announcement: 0 items
+2026-11-09 00:47:05,619 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:07,250 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:10,173 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:10,173 | ERROR | pipeline | collector failed: 002156 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:47:13,451 | INFO | pipeline | 002156 ir: 45 items
+2026-11-09 00:47:14,972 | INFO | pipeline | 688017 news: 0 items
+2026-11-09 00:47:15,773 | INFO | pipeline | 688017 announcement: 0 items
+2026-11-09 00:47:16,875 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:18,372 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:21,511 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:21,512 | ERROR | pipeline | collector failed: 688017 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:47:24,775 | INFO | pipeline | 688017 ir: 24 items
+2026-11-09 00:47:26,295 | INFO | pipeline | 300620 news: 0 items
+2026-11-09 00:47:27,097 | INFO | pipeline | 300620 announcement: 0 items
+2026-11-09 00:47:28,909 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:30,832 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:33,792 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:33,792 | ERROR | pipeline | collector failed: 300620 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:47:37,087 | INFO | pipeline | 300620 ir: 42 items
+2026-11-09 00:47:38,609 | INFO | pipeline | 688825 news: 0 items
+2026-11-09 00:47:39,410 | INFO | pipeline | 688825 announcement: 0 items
+2026-11-09 00:47:40,679 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:42,423 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:45,365 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:45,366 | ERROR | pipeline | collector failed: 688825 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:47:48,588 | INFO | pipeline | 688825 ir: 2 items
+2026-11-09 00:47:50,404 | INFO | pipeline | 300373 news: 0 items
+2026-11-09 00:47:51,206 | INFO | pipeline | 300373 announcement: 0 items
+2026-11-09 00:47:52,589 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:54,244 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:56,936 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:47:56,936 | ERROR | pipeline | collector failed: 300373 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:48:00,199 | INFO | pipeline | 300373 ir: 45 items
+2026-11-09 00:48:02,779 | INFO | pipeline | 688020 news: 0 items
+2026-11-09 00:48:03,580 | INFO | pipeline | 688020 announcement: 0 items
+2026-11-09 00:48:04,621 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:06,113 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:09,048 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:09,048 | ERROR | pipeline | collector failed: 688020 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:48:12,336 | INFO | pipeline | 688020 ir: 39 items
+2026-11-09 00:48:13,870 | INFO | pipeline | 002463 news: 0 items
+2026-11-09 00:48:14,671 | INFO | pipeline | 002463 announcement: 0 items
+2026-11-09 00:48:16,036 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:17,631 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:20,318 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:20,318 | ERROR | pipeline | collector failed: 002463 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:48:23,624 | INFO | pipeline | 002463 ir: 45 items
+2026-11-09 00:48:25,146 | INFO | pipeline | 002851 news: 0 items
+2026-11-09 00:48:25,948 | INFO | pipeline | 002851 announcement: 0 items
+2026-11-09 00:48:27,183 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:29,408 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:35,407 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:35,407 | ERROR | pipeline | collector failed: 002851 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:48:38,706 | INFO | pipeline | 002851 ir: 45 items
+2026-11-09 00:48:40,252 | INFO | pipeline | 920045 news: 0 items
+2026-11-09 00:48:41,053 | INFO | pipeline | 920045 announcement: 0 items
+2026-11-09 00:48:42,167 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:43,649 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:46,436 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:46,436 | ERROR | pipeline | collector failed: 920045 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:48:50,524 | INFO | pipeline | 920045 ir: 5 items
+2026-11-09 00:48:53,010 | INFO | pipeline | 300394 news: 0 items
+2026-11-09 00:48:53,811 | INFO | pipeline | 300394 announcement: 0 items
+2026-11-09 00:48:54,934 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:56,446 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:59,747 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:48:59,748 | ERROR | pipeline | collector failed: 300394 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:49:03,450 | INFO | pipeline | 300394 ir: 45 items
+2026-11-09 00:49:04,973 | INFO | pipeline | 002384 news: 0 items
+2026-11-09 00:49:05,774 | INFO | pipeline | 002384 announcement: 0 items
+2026-11-09 00:49:07,154 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:08,871 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:12,372 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:12,372 | ERROR | pipeline | collector failed: 002384 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:49:15,666 | INFO | pipeline | 002384 ir: 45 items
+2026-11-09 00:49:17,187 | INFO | pipeline | 300502 news: 0 items
+2026-11-09 00:49:17,988 | INFO | pipeline | 300502 announcement: 0 items
+2026-11-09 00:49:19,089 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:20,582 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:23,431 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:23,431 | ERROR | pipeline | collector failed: 300502 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:49:27,467 | INFO | pipeline | 300502 ir: 45 items
+2026-11-09 00:49:29,918 | INFO | pipeline | 300750 news: 0 items
+2026-11-09 00:49:30,719 | INFO | pipeline | 300750 announcement: 0 items
+2026-11-09 00:49:32,212 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:33,739 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:36,673 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:36,674 | ERROR | pipeline | collector failed: 300750 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:49:40,283 | INFO | pipeline | 300750 ir: 45 items
+2026-11-09 00:49:41,853 | INFO | pipeline | 301488 news: 0 items
+2026-11-09 00:49:42,654 | INFO | pipeline | 301488 announcement: 0 items
+2026-11-09 00:49:43,723 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:45,180 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:47,896 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:47,896 | ERROR | pipeline | collector failed: 301488 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:49:51,164 | INFO | pipeline | 301488 ir: 44 items
+2026-11-09 00:49:52,737 | INFO | pipeline | 603986 news: 0 items
+2026-11-09 00:49:53,538 | INFO | pipeline | 603986 announcement: 0 items
+2026-11-09 00:49:55,702 | WARNING | utils | block-trade-market:20261108:20261109 failed (1/3): 'NoneType' object is not subscriptable
+2026-11-09 00:49:57,213 | WARNING | utils | block-trade-market:20261108:20261109 failed (2/3): 'NoneType' object is not subscriptable
+2026-11-09 00:50:00,223 | WARNING | utils | block-trade-market:20261108:20261109 failed (3/3): 'NoneType' object is not subscriptable
+2026-11-09 00:50:00,223 | ERROR | pipeline | collector failed: 603986 block_trade
+Traceback (most recent call last):
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 72, in run_once
+    items = fn()
+            ^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/pipeline.py", line 52, in <lambda>
+    lambda: collect_block_trades(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 208, in collect_block_trades
+    df = _block_trade_range(
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/collectors/akshare_collectors.py", line 193, in _block_trade_range
+    return safe_call(
+           ^^^^^^^^^^
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 86, in safe_call
+    raise last
+  File "/home/runner/work/Repository-name-a-stock-radar/Repository-name-a-stock-radar/utils.py", line 80, in safe_call
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/akshare/stock/flow/stock_dzjy_em.py", line 127, in stock_dzjy_mrmx
+    if not data_json["result"]["data"]:
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2026-11-09 00:50:03,524 | INFO | pipeline | 603986 ir: 45 items
